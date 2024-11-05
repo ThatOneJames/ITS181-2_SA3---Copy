@@ -1,0 +1,20 @@
+<h2>Admin: Manage Dogs for Adoption</h2>
+
+<ul>
+  <li *ngFor="let dog of dogs">
+    {{ dog.name }} ({{ dog.breed }})
+    <button (click)="selectDog(dog)">Edit</button>
+    <button (click)="deleteDog(dog.id)">Delete</button>
+  </li>
+</ul>
+
+<div *ngIf="selectedDog">
+  <h3>Edit Dog</h3>
+  <form #dogForm="ngForm">
+    <label>Name: <input [(ngModel)]="selectedDog.name" name="name"></label><br>
+    <label>Breed: <input [(ngModel)]="selectedDog.breed" name="breed"></label><br>
+    <label>Age: <input [(ngModel)]="selectedDog.age" name="age" type="number"></label><br>
+    <label>Description: <input [(ngModel)]="selectedDog.description" name="description"></label><br>
+    <button (click)="updateDog(selectedDog)">Save</button>
+  </form>
+</div>
