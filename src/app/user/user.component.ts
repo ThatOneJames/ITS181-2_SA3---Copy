@@ -1,20 +1,18 @@
-import { Component } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
-import { Dog } from '../dog';
+import { Component, OnInit } from '@angular/core';
 import { DogService } from '../dog.service';
+import { Dog } from '../dog';
 
 @Component({
   selector: 'app-user',
-  standalone: true,
-  imports: [CommonModule, FormsModule],
   templateUrl: './user.component.html',
   styleUrls: ['./user.component.css']
 })
-export class UserComponent {
+export class UserComponent implements OnInit {
   dogs: Dog[] = [];
 
-  constructor(private dogService: DogService) {
+  constructor(private dogService: DogService) {}
+
+  ngOnInit(): void {
     this.loadDogs();
   }
 

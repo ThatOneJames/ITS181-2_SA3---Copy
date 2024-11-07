@@ -15,6 +15,15 @@ export class AdminComponent {
   dogs: Dog[] = [];
   selectedDog: Dog | null = null;
 
+  newDog: Dog = {
+    id: 0,
+    name: '',
+    breed: '',
+    age: 0,
+    description: '',
+    isAvailable: true
+  };
+
   constructor(private dogService: DogService) {
     this.loadDogs();
   }
@@ -27,18 +36,18 @@ export class AdminComponent {
     this.selectedDog = { ...dog };
   }
 
-  addDog(newDog: Dog): void {
-    this.dogService.addDog(newDog);
+  addDog(): void {
+    this.newDog.id = Date.now();
+    this.dogService.addDog(this.newDog);
+    this.newDog = { id: 0, name: '', breed: '', age: 0, description: '', isAvailable: true };
     this.loadDogs();
   }
 
   updateDog(dog: Dog): void {
-    this.dogService.updateDog(dog);
-    this.loadDogs();
+    this.dogService.updateDog(dog).subscribe(() => this.loadDogs());
   }
 
   deleteDog(id: number): void {
-    this.dogService.deleteDog(id);
-    this.loadDogs();
+    this.dogService.deleteDog(id).subscribe(() => this.loadDogs());
   }
 }

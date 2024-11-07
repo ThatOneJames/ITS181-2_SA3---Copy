@@ -1,8 +1,8 @@
 export interface Dog {
-  id: number;
+  id?: number;
   name: string;
   breed: string;
   age: number;
   description: string;
-  isAvailable: boolean;
+  isAvailable?: boolean;
 }
