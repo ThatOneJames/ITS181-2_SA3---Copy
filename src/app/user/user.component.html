@@ -1,9 +1,0 @@
-<h2>Available Dogs for Adoption</h2>
-<ul>
-  <li *ngFor="let dog of dogs" [class.unavailable]="!dog.isAvailable">
-    {{ dog.name }} ({{ dog.breed }} - {{ dog.age }} years)
-    <p>{{ dog.description }}</p>
-    <button *ngIf="dog.isAvailable" (click)="expressInterest(dog.id)">Express Interest</button>
-    <span *ngIf="!dog.isAvailable">Not Available</span>
-  </li>
-</ul>
