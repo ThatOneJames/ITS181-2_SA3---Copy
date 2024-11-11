@@ -1,0 +1,6 @@
+[submodule "ITS181-2_SA3_Frontend"]
+	path = ITS181-2_SA3_Frontend
+	url = git@github.com:Cedeli/ITS181-2_SA3_Frontend.git
+[submodule "ITS181-2_SA3_Backend"]
+	path = ITS181-2_SA3_Backend
+	url = git@github.com:Cedeli/ITS181-2_SA3_Backend.git
